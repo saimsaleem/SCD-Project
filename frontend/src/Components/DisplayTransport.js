@@ -141,7 +141,7 @@ export default function DisplayTransport() {
       <button type="text" class="submit" onClick = {() =>
 
         {
-          console.log(namee);
+          // console.log(namee);
           const data = {namee,type,seats,price,image};
           axios.put(`http://localhost:3001/user/updateTransport/${id}`, data).then((response) => 
           {

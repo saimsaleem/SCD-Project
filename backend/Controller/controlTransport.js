@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://saim:123@vacay.fw2ph4w.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology:true});
+mongoose.connect('mongodb://127.0.0.1:27017/myDB', {useNewUrlParser: true,useUnifiedTopology:true});
 const { MongoClient, ObjectId } = require('mongodb');
 const express = require('express')
 const transport = require('../model/modelTransport')
@@ -57,9 +57,9 @@ const deleteTransport = async (req, res) => {
 };
 
 const findTransport = async (req,res) => {
-  const {namee} = req.params;
-  console.log(namee);
-  transport.findOne({name: namee})
+  const {id} = req.params;
+  console.log(id);
+  transport.findOne({_id: id})
   .then((transport) => {
     res.status(200).json({
       transport: transport,
@@ -73,9 +73,8 @@ const findTransport = async (req,res) => {
 
 const updateTransport = async (req,res) => {
   const{id} = req.params;
-
   const newtransport = {
-    name:req.body.name,
+    name:req.body.namee,
     type:req.body.type,
     seats:req.body.seats,
     price:req.body.price,

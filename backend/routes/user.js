@@ -17,7 +17,7 @@ user.get('/', (req, res) => {
 user.post('/addTransport',controller.addTransport);
 user.get('/getTransport',controller.getTransport);
 user.delete('/deleteTransport/:id',controller.deleteTransport);
-user.get('/findTransport/:namee',controller.findTransport);
+user.get('/findTransport/:id',controller.findTransport);
 user.put('/updateTransport/:id',controller.updateTransport);
 
 module.exports = user;

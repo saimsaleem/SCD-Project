@@ -1,5 +1,9 @@
 # SCD-Project
 CRUD Operations using MERN
+Create
+Read
+Update
+Delete
 Start with installing dependencies using 'npm i'
 Install dependencies for 'frontend' as well as 'backend'.
 Use 'npm start' to run both.

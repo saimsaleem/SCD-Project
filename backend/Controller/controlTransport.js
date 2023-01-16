@@ -6,10 +6,9 @@ const transport = require('../model/modelTransport')
 
 
 const addTransport = async (req,res) => {
-  console.log("Creation");
+  console.log("Creation: ");
   
   const {name,type,seats,price,image} = req.body;
-
 
     const newTransport = new transport({
         name,type,seats,price,image
@@ -23,7 +22,7 @@ const addTransport = async (req,res) => {
     console.error(err);
     });
 
-    res.send('Controller posted!');
+    console.log("Transport Created!");
 
 
 }
@@ -44,7 +43,7 @@ const getTransport = (req, res) => {
 const deleteTransport = async (req, res) => {
 
   const { id } = req.params;
-  console.log(id);
+  console.log("Transport deleted: " + id);
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: 'Invalid' });
   }
@@ -58,7 +57,7 @@ const deleteTransport = async (req, res) => {
 
 const findTransport = async (req,res) => {
   const {id} = req.params;
-  console.log(id);
+  console.log("Found ID: " + id);
   transport.findOne({_id: id})
   .then((transport) => {
     res.status(200).json({
@@ -73,6 +72,7 @@ const findTransport = async (req,res) => {
 
 const updateTransport = async (req,res) => {
   const{id} = req.params;
+  console.log("Updating Transport: " + id);
   const newtransport = {
     name:req.body.namee,
     type:req.body.type,
@@ -81,16 +81,17 @@ const updateTransport = async (req,res) => {
     image:req.body.image,
   }
 
-  transport.findByIdAndUpdate(id,newtransport,function(err,updatedprofile){
-    if(err){
-      console.log(err);
-    }else{
+  console.log(req.body);
+
+  transport.findByIdAndUpdate(id,newtransport,function(err,updatedprofile)
+    {
       res.json("Profile Updated")
     }
-  }).catch((err) => 
+  ).clone().catch((err) => 
   {
   console.error(err);
   });
+ 
 
 }
 

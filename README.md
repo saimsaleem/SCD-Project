@@ -1,4 +1,3 @@
-# SCD-Project
 CRUD Operations using MERN
 Create
 Read

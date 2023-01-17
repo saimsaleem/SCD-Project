@@ -70,7 +70,7 @@ export default function DisplayTransport() {
                     {
                       
 
-                     axios.get(`http://localhost:3001/user/findTransport/${transport._id}`).then((response) => {
+                     axios.get(`http://localhost:3001/user/findTransport/${transport.name}`).then((response) => {
                      setId(response.data.transport._id);
                      setNamee(response.data.transport.name);  
                      setType(response.data.transport.type); 

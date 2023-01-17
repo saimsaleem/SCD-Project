@@ -24,11 +24,13 @@ export default function UpdateTransport(){
       <button className="searchbtn" onClick={() =>
          {
           axios.get(`http://localhost:3001/user/findTransport/${namee}`).then((response) => {
+            
           setId(response.data.transport._id);  
           setType(response.data.transport.type); 
           setSeats(response.data.transport.seats); 
           setPrice(response.data.transport.price); 
-          setImage(response.data.transport.image); }).catch((err) => 
+          setImage(response.data.transport.image); 
+        }).catch((err) => 
           {
           alert("No Data Found!");
           });;

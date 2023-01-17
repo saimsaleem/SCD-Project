@@ -56,9 +56,9 @@ const deleteTransport = async (req, res) => {
 };
 
 const findTransport = async (req,res) => {
-  const {id} = req.params;
-  console.log("Found ID: " + id);
-  transport.findOne({_id: id})
+  const {name} = req.params;
+  console.log("Found: " + name);
+  transport.findOne({name: name})
   .then((transport) => {
     res.status(200).json({
       transport: transport,
@@ -72,7 +72,7 @@ const findTransport = async (req,res) => {
 
 const updateTransport = async (req,res) => {
   const{id} = req.params;
-  console.log("Updating Transport: " + id);
+  
   const newtransport = {
     name:req.body.namee,
     type:req.body.type,
